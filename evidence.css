@@ -1,0 +1,50 @@
+:root { 
+    color-scheme: light; 
+    font-family: Arial, Helvetica, sans-serif; 
+    line-height: 1.5; color: #191919; 
+}
+body { 
+    max-width: 72rem; 
+    margin: 0 auto; 
+    padding: 1.5rem; 
+}
+header { 
+    border-top: .35rem solid #8c1d40; 
+    border-bottom: .2rem solid #ffc627; 
+}
+h1, h2 { 
+    color: #8c1d40; 
+}
+section { 
+    margin-block: 2rem; 
+    break-inside: avoid; 
+}
+table { 
+    width: 100%; 
+    border-collapse: collapse; 
+}
+th, td { 
+    border: 1px solid #747474; 
+    padding: .5rem; 
+    text-align: left; 
+    vertical-align: top; 
+}
+th { 
+    background: #f1f1f1; 
+}
+dt { 
+    font-weight: 700; 
+}
+dd { 
+    margin-block-end: .75rem; 
+}
+@media print { 
+    body { 
+        max-width: none; 
+        padding: 0; 
+    } 
+    a { 
+        color: #191919; 
+    } 
+}
+
