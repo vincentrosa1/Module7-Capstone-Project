@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <title>Composition Plan - Fillmore Jazz Story</title>
+        <style>
+            body{
+                font-family:Arial,sans-serif;
+                line-height:1.5;
+                max-width:90rem;
+                margin:auto;
+                padding:1rem;
+                color:#191919;
+                }
+
+                .table-wrap {
+                    overflow-x: auto;
+                }
+
+            table{
+                width:100%;
+                min-width: 60rem;
+                border-collapse:collapse;
+                }
+
+                caption {
+                    padding-block: 0.6rem;
+                    text-align: left;
+                    font-weight: 700;
+                }
+
+            th,td{
+                padding:.6rem;
+                border:1px solid #999;
+                text-align:left;
+                vertical-align:top;
+                }
+            th{
+                background:#f1f1f1;
+                }
+        </style>
+        </head>
+        <body>
+            <h1>L6 · Composition Plan</h1>
+            <p> Story: Fillmore Jazz Story. Drafted September 16, 2026. </p>
+            <p>Layer scale (from <code>styles.css</code>):
+                <code>--layer-base: 0</code>,
+                <code>--layer-raised: 10</code>,
+                <code>--layer-sticky: 20</code>,
+                <code>--layer-overlay: 30</code>.
+                Decorative layers use a local <code>-1</code> inside their parent's stacking context.
+            
+            </p>
+            <div class="table-wrap">
+            <table>
+                <caption>
+                    One row per positioned, layered, clipped, rounded, or shape-wrapped element. 
+                </caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Element</th>
+                        <th scope="col">Content purpose</th>
+                        <th scope="col">Normal-flow baseline</th>
+                        <th scope="col">Chosen technique and why</th>
+                        <th scope="col">Containing block / stacking context</th>
+                        <th scope="col">Fallback or disengagement</th>
+                        <th scope="col">Required test</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">
+                            <code>.skip-link</code>
+                        </th>
+                        
+                        <td>Keyboard users can skip past the header and story guide straight to the article. </td>
+                        
+                        <td>It's the first link on the page, so with no styling it just shows up as a normal link at the top.</td>
+                        
+                        <td>I will use <code>position:absolute</code> to keep it off-screen until it 
+                            gets <code>:focus-visible</code>, then it will show at the top-left. 
+                            Because it's absolute, showing it doesn't push anything else around.
+                        </td>
+                        
+                        <td>No positioned parent, so it uses the initial containing block. I will give it 
+                            <code>z-index:var(--layer-overlay)</code>, which is the top layer. That makes its own stacking
+                            context and keeps the sticky guide from covering it. 
+                        </td>              
+                        
+                        <td>With CSS turned off it's still a visible link at the top of the page. </td>
+                        
+                        <td>Tabbing in from the address bar at 320px, 1280px and 200% zoom. The link should show up, 
+                            not be covered, and move focus to the article.
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th scope="row">
+                            <code>.issue-badge</code>
+                        </th>
+
+                        <td>
+                            A small "1940s - 1960s" tag that dates the story at a glance. The lede will say the same thing, 
+                            so nothing is lost if the badge is missed. 
+                        </td>
+
+                        <td>
+                            With no styling it's just a line of text right after the lede. 
+                        </td>
+
+                        <td>
+                            I will use <code>position:absolute</code> with <code>inset-block-start</code> and <code>inset-inline-end</code>
+                             to pin it to the header's top corner no matter how long the title is. I will add inline-end padding to the 
+                             header so the title never runs under it.
+                        </td>
+
+                        <td>
+                            The header will be <code>position:relative</code>, so it's the containing block. I won't give the badge a z-index,
+                             so it doesn't make a new stacking context. It will still paint above the header text because it's positioned. 
+                        </td>
+
+                        <td>
+                            Under 52rem I will turn the positioning off and it will sit in normal flow under the lede. 
+                        </td>
+
+                        <td>
+                            I will check 320px, 768px, and 1280px, long title, and 200% zoom. The badge should never overlap the eyebrow or 
+                            the title.
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th scope="row">
+                            <code>.story-guide</code>
+                        </th>
+
+                        <td>
+                            In-page links that jump to each section of the story. 
+                        </td>
+
+                        <td>
+                            With no styling it's just a block of links above the article. 
+                        </td>
+
+                        <td>
+                            I will use <code>position:sticky</code> with <code>inset-block-start:var(--space-sm)</code> in the first grid column,
+                             plus <code>align-self:start</code> so it has room to travel. I'm picking sticky over fixed so it can't leave its section. 
+                        </td>
+
+                        <td>
+                            I will wrap the guide and article in <code>.story-layout</code> so the guide stops when the article ends and never slides
+                            over the documentation section. <code>z-index:var(--layer-sticky)</code> will give it its own stacking context.
+                        </td>
+
+                        <td>
+                            It will only stick when the screen is at least 52rem wide and 32rem tall. Smaller or zoomed-in screens get a normal list
+                            so every link stays reachable.
+                        </td>
+
+                        <td>
+                            I will scroll top to bottom at 1280px. It should stick at the start, stop at the end of the article, and never cover the 
+                            documentaion. I will click and tab through ever link and inspect the stacking context in DevTools.
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th scope="row">
+                            <code>.feature-figure img</code>
+                        </th>
+
+                        <td>
+                            A 1942 photograph of Buchanan Street from Post Street, taken weeks before the removal changed who lived in the neighborhood.
+                            The caption carries the credit and a link to the archive.
+                        </td>
+
+                        <td>
+                            With no styling it's a plain rectangle image with the caption below it.
+                        </td>
+
+                        <td>
+                            I will use <code>clip-path:polygon()</code> to angle the corners like a torn gig poster. The image is a scan of an archival print, so the
+                            trim stays inside the white mount border around the photograph and never touches the photographic content. No more than about 4% comes off
+                            any edge, and the cut at the bottom right stays shallow so the WRA reference number stays readable. The file itself is uncropped and
+                            unaltered.
+                        </td>
+
+                        <td>
+                            The clip uses the image's own border box. <code>clip-path</code> will make a stacking context on the image only, so it won't
+                            need a z-index.
+                        </td>
+
+                        <td>
+                            I will wrap it in <code>@supports</code>, so browsers without support show the full rectangle. The fallback is the complete photo,
+                            and the caption sits outside the clipped image.
+                        </td>
+
+                        <td>
+                            I will turn <code>clip-path</code> off in DevTools and confirm the image and caption are still complete. I will also inspect the stacking context.
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th scope="row">
+                            <code>.pull-quote</code>
+                        </th>
+
+                        <td>
+                            Pulls out a quote about the Fillmore scene, wiht the source credited and linked.
+                        </td>
+
+                        <td>
+                            With no styling it's a normal blockquote under the figure.
+                        </td>
+
+                        <td>
+                            I will pull it up with a negative <code>margin-block-start</code> so it overlaps into an empty padding band at the bottom
+                            of the figure. It only coverst empty space, and it stays inside the article column. 
+                        </td>
+
+                        <td>
+                            It sits in normal flow inside <code>article</code>. I will add <code>position:relative</code> and <code>z-index:var(--layer-raised)</code>
+                            , which makes a stacking context that the decorative glyph can anchor to.
+                        </td>
+
+                        <td>
+                            Under 52 rem I will drop the negaitve margin so it sits in normal flow with no overlap. 
+                        </td>
+
+                        <td>
+                            At 1280px I will confirm the caption is fully visible above the quote. I will double the paragraphs to check growth, click the source link,
+                            and inspect the stacking context.
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th scope="row">
+                            <code>.pull-quote::before</code>
+                        </th>
+
+                        <td>
+                            A big decorative quotation mark behind the quote text. It's a decoration only, so no information lives in it. 
+                        </td>
+
+                        <td>
+                            It doesn't render at all without CSS, which is fine since it's decorative.
+                        </td>
+
+                        <td>
+                            I will place it with <code>position:absolute</code> behind the text and set <code>pointer-events:none</code> so 
+                            it can never block clicks on the source link. I will use an empty alt string in <code>content</code> so screen readers skip it.
+                        </td>
+
+                        <td>
+                            <code>.pull-quote</code> is both its containing block and its stacking context. <code>z-index:-1</code> will paint it above the quote's
+                            background but under the quote's text.
+                        </td>
+
+                        <td>
+                            If it doesn't render, nothing is lost. The quote and the link still work on their own.
+                        </td>
+
+                        <td>
+                            I will click the source link right where the glyph sits to prove <code>pointer-events:none</code> works, and check
+                            the accessibility tree to confirm the glyph isn't announced.
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th scope="row">
+                            <code>.shape-record</code>
+                        </th>
+
+                        <td>
+                            A decorative vinyl record graphic beside the legacy section. It's decoration, not documentation,
+                            so it makes no historical claim and needs no photo credit. 
+                        </td>
+
+                        <td>
+                            With no styling it's a block image above the paragraphs, and the text reads at full width underneath.
+                        </td>
+
+                        <td>
+                            An inline SVG, so it can use my color tokens. I will use <code>float:inline-start</code> with
+                            <code>shape-outside:circle(50%)</code> and <code>shape-margin</code> so the text follows the record's actual round
+                            edge instead of a square box. The graphic really is a circle, so the shape matches the content.  
+                        </td>
+
+                        <td>
+                            It floats inside its section, and the section uses <code>display:flow-root</code> to contain the float. No stacking context
+                             and no z-index needed.
+                        </td>
+
+                        <td>
+                            The float and shape only apply inside <code>@supports</code> and at 30rem and up. Otherwise the image sits above the text 
+                            and everything still reads in order.
+                        </td>
+
+                        <td>
+                            I will turn <code>shape-outside</code> off and confirm the text still reads fine. I will check 320px and 1280px, and double the
+                            paragraphs to confirm the text clears the float and returns to full width. 
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th scope="row">
+                            Rounded surfaces
+                            <code>.stroy-guide</code>,
+                            <code>.feature-figure</code>,
+                            <code>.pull-quote</code>,
+                            <code>.shape-record</code>
+                        </th>
+
+                        <td>
+                            Softer corners group the panels and set them apart from body text. The 50% radius is what makes the record read as a disc.
+                        </td>
+
+                        <td>
+                            With no styling every box has square corners and reads exactly the same.
+                        </td>
+                        
+                        <td>
+                            I will use <code>--radius-sm</code> and <code>--radius-md</code> tokens so the rounding matches the rest of my system instead of being 
+                            one-off values.
+                        </td>
+
+                        <td>
+                            Rounding doesn't position anything or create a stacking context. I'm not using <code>overflow:hidden</code>, so nothing gets clipped.
+                        </td>
+                        
+                        <td>
+                            If <code>border-radius</code> isn't supported, the corners are square and the content is identical.
+                        </td>
+
+                        <td>
+                            I will check the focus rings follow the rounded corners and stay visible, and that no text gets cut off at 200% zoom.
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+        </body>
+        </html>
