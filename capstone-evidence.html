@@ -66,19 +66,153 @@
                 <table>
                     <thead>
                         <tr>
-                            <th>Requirement</th>
-                            <th>Location</th>
-                            <th>Purpose</th>
-                            <th>Reuse decision</th>
+                            <th scope="col">Requirement</th>
+                            <th scope="col">Location</th>
+                            <th scope="col">Purpose</th>
+                            <th scope="col">Reuse decision</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>[Course component]</td>
-                            <td>[Page/component/file]</td>
-                            <td>[Why it belongs]</td>
-                            <td>[Adapt, refactor, replace, omit, or new]</td>
+                            <th scope="row">Semantic Structure and metadata</th>
+                            <td>All pages: skip link, one banner
+                                <code>header</code>, labled <code>nav</code>, <code>main</code>,
+                                one <code>h1</code>, unique title and meta description.
+                            </td>
+                            <td>Landmarks and headings let readers and screen readers reach each
+                                priority task.
+                            </td>
+                            <td>Adapt Module 5 page shell and Module 4 Story markup, 
+                                <code>.feature-header</code> moves inside <code>main</code>.
+                            </td>
                         </tr>
+
+                        <tr>
+                            <th scope="row">Shared design system</th>
+                            <td><code>styles.css</code>: reset, tokens, type scale
+                            shared components.</td>
+                            <td>Plum, brass, and cream tokens; PT serif with Georgia fallback;
+                                fluid type steps; one set of hover, focus, and active states.
+                            </td>
+                            <td>Adapt Module 5 and 6 Arial and maroon/gold tokens </td>
+                        </tr>
+
+                        <tr>
+                            <th scope="row">Navigation and layout</th>
+                            <td>All pages: 
+                                <code>.site-header</code> and 
+                                <code>navigation.js</code>;
+                                <code>.story-layout</code> grid on
+                                <code>story.html</code>
+                            </td>
+                            <td>Menu button, <code>aria-current</code> marker, every link visible
+                            without JavaScript; two-column stroy at 52rem. </td>
+                            <td>Refactor Module 5 nav onto Fillmore tokens; 56 rem breakpoint retested
+                                with new labels, also adapting module 4 grid. 
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th scope="row">Figure</th>
+                            <td><code>story.html</code>, 
+                            <code>.feature-figure</code></td>
+                            <td>1942 Dorothea Lange photo of 
+                                Buchanan Street before the removal, with caption, credit, and archive link.
+                            </td>
+                            <td>Adapting from Module 4</td>
+                        </tr>
+
+                        <tr>
+                            <th scope="row">Data Table</th>
+                            <td><code>clubs.html</code>,
+                            <code>.data-table</code></td>
+                            <td>Club reference: location, years, and significance. Caption, 
+                                scoped headers, and a focusable scroll region. 
+                            </td>
+                            <td>Refactored from Module 2 table patterns and adding new content 
+                                to the Module 4 story. 
+                            </td>
+                        </tr>
+
+
+                        <tr>
+                            <th scope="row">Form</th>
+                            <td><code>tour.html</code></td>
+                            <td>Tour request with visible labels, help text, date, 
+                                group-size, and time constraints
+                            </td>
+                            <td></td>
+                        </tr>
+
+                        <tr>
+                            <th scope="row">SVG</th>
+                            <td><code>story.html</code>, 
+                            <code>.shape-record</code></td>
+                            <td>Original decorative vinyl record beside the legacy section; 
+                                hidden from screen readers because it carries no information.
+                            </td>
+                            <td>Adapting from Module 4; fills move from inline attributes to CSS classes</td>
+                        </tr>
+
+
+                        <tr>
+                            <th scope="row">Positioning and layering</th>
+                            <td><code>.skip-link</code>, 
+                            <code>.issue-badge</code>, sticky
+                            <code>.stroy-guide</code>, 
+                            <code>.pull-quote</code>, 
+                            <code>--layer-</code> scale</td>
+                            <td>Bounded spatial relationships only, each with a normal-flow 
+                                fallback in the composition plan.
+                            </td>
+                            <td>Adapting from Module 4</td>
+                        </tr>
+
+                        <tr>
+                            <th scope="row">Shape or clip</th>
+                            <td><code>clip-path</code> on
+                            <code>.feature-figure img</code>; 
+                            <code>shape-outside</code> on
+                            <code>.shape-record</code></td>
+                            <td>Torn poster edge on the photo;
+                                text follows the record's round edge. 
+                                Both inside <code>@supports</code>. 
+                            </td>
+                            <td>Adapting from Module 4</td>
+                        </tr>
+
+
+                        <tr>
+                            <th scope="row">Effect or motion</th>
+                            <td><code>.action</code> links on 
+                            <code>index.html</code>, one per priority task</td>
+                            <td>Lift, shadow, and arrow nudge on hover and focus
+                                mark the next step. Reduced motion removes movement
+                                but keeps the shadow and underline cues.
+                            </td>
+                            <td>Adapted from Module 6 <code>.action</code> microinteraction
+                            from the Fillmore Jazz Festival check-in </td>
+                        </tr>
+
+                        <tr>
+                            <th scope="row">Testing</th>
+                            <td>Evidence Sections 3&ndash;4</td>
+                            <td>Release a check and three findings, each with a 
+                                repair and an exact retest.
+                            </td>
+                            <td>Adapting condition, expected, observed, and repair 
+                                format from the Module 5 and 6 test.
+                            </td>
+                        </tr>
+
+
+                        <tr>
+                            <th scope="row">Documentation</th>
+                            <td><code>capstone-evidence.html</code></td>
+                            <td>Brief, map, findings, credits and an AI disclosure.</td>
+                            <td>Adapting from Module 4 composition plan</td>
+                        </tr>
+
                     </tbody>
                 </table>
                 <p>Add enough rows to locate semantic structure, the design system, figure, table, form, SVG, navigation/layout, positioning/layering, shape, effect/motion, testing, and documentation.</p>
