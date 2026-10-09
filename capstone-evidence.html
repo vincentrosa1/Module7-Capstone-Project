@@ -226,7 +226,7 @@
 
                 <ul>
                     <li>HTML and CSS validation: All four pages pass the Nu Html Checker
-                        with 0 errors after one repair (Finding 1). story.html shows 1 warning,
+                        with 0 errors after one repair on Finding 3. story.html shows 1 warning,
                         "Article lacks heading" the h1 sits in the feature header. The CSS validator
                         reports 3 errors, all <code>shape-outside</code> and <code>shape-margin</code>: 
                         properties the CSS level 3 + SVG profile doesn't include. They're guarded by 
@@ -245,22 +245,58 @@
                 <table>
                     <thead>
                         <tr>
-                            <th>Finding and condition</th>
-                            <th>Impact</th>
-                            <th>Repair</th>
-                            <th>Exact retest and result</th>
+                            <th scope="col">Finding and condition</th>
+                            <th scope="col">Impact</th>
+                            <th scope="col">Repair</th>
+                            <th scope="col">Exact retest and result</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>[What happened and under which condition]</td>
-                            <td>[Affected content, task, or user]</td>
-                            <td>[What changed]</td>
-                            <td>[Repeated condition and observed result]</td>
+                            <td><strong>1. Menu never closes.</strong>
+                            At 375px on the live site, clicking the Menu
+                            toggled <code>aria-expanded</code> but the list
+                            stayed open.</td>
+                            <td>Every page at narrow widths: the nav list
+                                always takes over the top of the page, and 
+                                the button state doesn't match what's shown. 
+                            </td>
+                            <td>The CSS Checked <code>[data-enhance]</code>, but
+                            <code>navigation.js</code> sets <code>data-enhanced</code>.
+                            Realized that it was a typo in <code>styles.css</code>.</td>
+                            <td>At 375px: the list starts closed, Menu open and closes it. 
+                                Escape closes it with focus back on the Menu. Pass after repair. 
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>2. Nav text disappears on hover.</strong>
+                            At 1280px, hovering the nav link turned its background 
+                            white behind white text.</td>
+                            <td>Mouse users lose the label of the link they're pointing
+                                at in the main navigation.
+                            </td>
+                            <td>Hover backlground was <code>--color-on-action</code> which is (white)
+                            instead of <code>--color-action</code> Which is a (plum color)</td>
+                            <td>Hovering each nav link at 1280px and Menu at 375px: now have a white underline
+                                text on a plum background color. Pass after repair. 
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>3. Character limit not enforced.</strong>Ran the html validator
+                            on tour.html: <code>max-length</code> not allowed on <code>textarea</code>. As a 
+                            result you could enter 300+ characters into Access needs and it was accepted. </td>
+                            <td>The help text promised a 300 character limit but the form didn't enforce it, and the
+                                page ended up failing validation. 
+                            </td>
+                            <td>Renamed <code>max-length</code> to <code>maxlength</code>. </td>
+                            <td>After repair html validator showed 0 errors. Was able to get stopped at 300 
+                                character limit. Pass after repair. 
+                            </td>
                         </tr>
                     </tbody>
                 </table>
-                <p>Add two more rows.</p>
             </section>
             <section>
                 <h2>5. Screenshots</h2>
