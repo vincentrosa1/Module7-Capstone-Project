@@ -347,23 +347,6 @@ article section {
     }
 }
 
-/* === DOCUMENTATION === */
-.documentation {
-    padding: var(--space-lg);
-    border-radius: var(--radius-md);
-    background: var(--color-surface);
-    border: 1px solid var(--color-border);
-}
-
-.documentation h2 {
-    font-size: var(--step-1);
-}
-
-.documentation a {
-        display: inline-block;
-        padding-block: var(--space-2xs);
-}
-
 
 /* === PREFERENCES === */
 @media (prefers-reduced-motion: reduce) {
