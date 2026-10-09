@@ -159,7 +159,7 @@
                             <th scope="row">Positioning and layering</th>
                             <td><code>.skip-link</code>, 
                             <code>.issue-badge</code>, sticky
-                            <code>.stroy-guide</code>, 
+                            <code>.story-guide</code>, 
                             <code>.pull-quote</code>, 
                             <code>--layer-</code> scale</td>
                             <td>Bounded spatial relationships only, each with a normal-flow 
@@ -197,7 +197,7 @@
                         <tr>
                             <th scope="row">Testing</th>
                             <td>Evidence Sections 3&ndash;4</td>
-                            <td>Release a check and three findings, each with a 
+                            <td>Release check and three findings, each with a 
                                 repair and an exact retest.
                             </td>
                             <td>Adapting condition, expected, observed, and repair 
@@ -213,6 +213,15 @@
                             <td>Adapting from Module 4 composition plan</td>
                         </tr>
 
+                        <tr>
+                            <th scope="row">Omitted work</th>
+                            <td>Module 4 L1&ndash;L6 labels, PDF documentation section, 
+                                and unused <code>feature.svg</code> and <code>portrait.svg</code>;
+                                Module 3 F-labels and state specimens; Module 5 garden content.
+                            </td>
+                            <td>Past scaffolding and unrelated topics would break the site experience.</td>
+                            <td>Omitted.</td>
+                        </tr>
                     </tbody>
                 </table>
             </section>
@@ -232,7 +241,10 @@
                         properties the CSS level 3 + SVG profile doesn't include. They're guarded by 
                         <code>@supports</code>, so this is a validator limit, not a defect.
                     </li>
-                    <li>Published links and assets: [result]</li>
+                    <li>Published links and assets: Every nav, in-page, and external link
+                        opened the right page or section, and the DevTools Network panel 
+                        showed no failed requests on any page. 
+                    </li>
                     <li>320 CSS pixels and 200% zoom: [result]</li>
                     <li>Keyboard and visible focus: [result]</li>
                     <li>Form labels, constraints, errors, and recovery: [result]</li>
