@@ -225,7 +225,13 @@
                 </p>
 
                 <ul>
-                    <li>HTML and CSS validation: [result]</li>
+                    <li>HTML and CSS validation: All four pages pass the Nu Html Checker
+                        with 0 errors after one repair (Finding 1). story.html shows 1 warning,
+                        "Article lacks heading" the h1 sits in the feature header. The CSS validator
+                        reports 3 errors, all <code>shape-outside</code> and <code>shape-margin</code>: 
+                        properties the CSS level 3 + SVG profile doesn't include. They're guarded by 
+                        <code>@supports</code>, so this is a validator limit, not a defect.
+                    </li>
                     <li>Published links and assets: [result]</li>
                     <li>320 CSS pixels and 200% zoom: [result]</li>
                     <li>Keyboard and visible focus: [result]</li>
