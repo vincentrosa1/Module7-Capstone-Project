@@ -450,7 +450,7 @@ they can now use tokens */
 .nav-list a:hover,
 .menu-button:hover {
     background: var(--color-on-action);
-    color: var(--color-on-action);
+    color: var(--color-action);
     text-decoration: underline;
     text-underline-offset: 0.2rem;
 }
