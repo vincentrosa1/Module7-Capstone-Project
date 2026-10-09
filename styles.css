@@ -337,6 +337,27 @@ article section {
     margin-inline-end: var(--space-md);
 }
 
+/* SVG colors now live here instead of in the html file, 
+they can now use tokens */
+.record-disc {
+    fill: var(--ink-900);
+}
+
+.record-groove {
+    fill: none;
+    stroke: var(--ink-400);
+    stroke-width: 0.5;
+}
+
+.record-label {
+    fill: var(--color-action);
+}
+
+.reccord-hole {
+    fill: var(--color-bg);
+}
+
+
 @supports (shape-outside: circle(50%)) {
     @media (min-width: 30rem) {
         .shape-record {
