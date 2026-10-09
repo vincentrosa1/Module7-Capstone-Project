@@ -3,28 +3,49 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width,initial-scale=1">
-        <title>The Story | Fillmore's Jazz Years</title>
+        <title>The Story | Fillmore Jazz Years</title>
         <meta name="description"
             content="How the Fillmore built a jazz scene, then lost it.">
         <link rel="stylesheet" href="styles.css">
+        <script src="navigation.js" defer></script>
     </head>
     <body>
-        <a class="skip-link" href="#story">
-            Skip to the story
+        <a class="skip-link" href="#main">
+            Skip to main content
         </a>
-        <header class="feature-header">
-            <p class="eyebrow">Feature Story</p>
-            <h1>
-                The Fillmore's Jazz Years: How a San Francisco Neighborhood Built a Scene, Then Lost It
-            </h1>
-            <p class="lede">
-                From the 1940s through the 1960s, San Francisco's Fillmore District was a mostly Black neighborhood so thick with jazz, blues and soul clubs
-                that people called it the Harlem of the West. Then the city decided the neighborhood needed fixing.
-            </p>
-            <span class="issue-badge">1940s&ndash;1960s</span>
+        <header class="site-header">
+            <a class="brand" href="index.html">Fillmore Jazz Years</a>
+            <nav aria-label="Primary navigation">
+                <button
+                    class="menu-button"
+                    type="button"
+                    aria-controls="primary-nav"
+                    aria-expanded="false"
+                    hidden>
+                Menu
+            </button>
+            <ul class="nav-list" id="primary-nav">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="story.html" aria-current="page">The Story</a></li>
+                <li><a href="clubs.html">The Clubs</a></li>
+                <li><a href="tour.html">Walking Tour</a></li>
+            </ul>
+        </nav>
         </header>
 
-        <main id="story">
+        <main id="main">
+            <header class="feature-header">
+                <p class="eyebrow">Feature Story</p>
+                <h1>The Fillmore's Jazz Years: How a San Francisco 
+                    Neighborhood Built a Scene, Then Lost It
+                </h1>
+                <p class="lede">
+                    From the 1940s through the 1960s, San Francisco's Fillmore District
+                    was a mostly Black neighborhood so thick with jazz, blues and soul clubs 
+                    that people called it the Harlem of the West. Then the city decided
+                    the neighborhood needed fixing.
+                </p>
+            </header>
             <div class="story-layout">
             <aside class="story-guide">
                 <h2>In this story</h2>
@@ -33,6 +54,7 @@
                 <a href="#section-three">Redevelopment</a>
                 <a href="#section-four">What remained</a>
             </aside>
+
             <article>
                 
                 <section id="section-one">
