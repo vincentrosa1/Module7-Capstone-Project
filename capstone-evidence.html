@@ -328,13 +328,93 @@
             </section>
             <section>
                 <h2>5. Screenshots</h2>
-                <p>[Insert two or three labeled screenshots. Connect each screenshot to a requirement, test, or repair.]</p>
+                <figure>
+                    <img src="images/finding-1-menu.png"
+                    alt="At 375px, the Menu button with the nav list
+                    closed after the selector repair. "
+                    width="375">
+                    <figcaption>
+                        <strong>Finding 1 retest:</strong> at 375 px the nav list starts closed and Menu
+                        toggles it after fixing <code>[data-enhanced]</code>.
+                    </figcaption>
+                </figure>
+
+                <figure>
+                    <img src="images/finding-2-hover.png"
+                    alt="Desktop header with a hovered nav link showing
+                    white underlined text on a plum background."
+                    width="700">
+                    <figcaption>
+                        <strong>Finding 2 retest:</strong> nav hover now shows white text on a plum 
+                        colored background instead of white on white. 
+                    </figcaption>
+                </figure>
+
+                <figure>
+                    <img src="images/finding-3-maxlength.png"
+                    alt="Access needs textarea filled with pasted placeholder 
+                    text that stops at the 300 character limit.">
+                    <figcaption>
+                        <strong>Finding 3 retest: </strong> after renaming <code>max-length</code>
+                        to <code>maxlength</code>, test stops at 300 characters, matching the help text. 
+                    </figcaption>
+                </figure>
             </section>
             <section>
                 <h2>6. Sources, Assets, and AI</h2>
-                <p><strong>MDN/official sources:</strong> [Concise list with links]</p>
-                <p><strong>Assets and licenses:</strong> [Asset, creator, source, license/permission, and modification]</p>
-                <p><strong>AI disclosure:</strong> [State “No generative AI was used,” or document the tool, purpose, meaningful assistance, verification, and final decision.]</p>
+                <p><strong>MDN/official sources:</strong></p>
+                <ul>
+                    <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/shape-outside">MDN: shape-outside</a>
+                        (record text wrap)</li>
+                    <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/clip-path">MDN: clip-path</a>
+                        (torn-edge photo)</li>
+                    <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@supports">MDN: @supports</a>
+                        (fallbacks for shape and clip)</li>
+                    <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/position">MDN: position</a>
+                        (sticky story guide, absolute badge and skip link)</li>
+                    <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion">MDN: prefers-reduced-motion</a>
+                        (action link fallback)</li>
+                    <li><a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-expanded">MDN: aria-expanded</a>
+                        and
+                        <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-current">aria-current</a>
+                        (menu state and current page)</li>
+                    <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table">MDN: table</a>
+                        (caption and scoped headers)</li>
+                    <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/date">MDN: input type="date"</a>,
+                        <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea">textarea</a>,
+                        and
+                        <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:user-invalid">:user-invalid</a>
+                        (form constraints and error state)</li>
+                    <li><a href="https://validator.w3.org/nu/">W3C Nu HTML Checker</a>
+                        and
+                        <a href="https://jigsaw.w3.org/css-validator/">W3C CSS Validator</a>
+                        (release check)</li>
+                    <li><a href="https://www.pbs.org/kqed/fillmore/learning/music/swing.html">KQED, The Fillmore</a>
+                        (story content and pull quote)</li>
+                </ul>                
+                <p><strong>Assets and licenses:</strong></p>
+<ul>
+                    <li><strong>Buchanan Street photograph, 1942.</strong>
+                        Dorothea Lange for the War Relocation Authority.
+                        Source:
+                        <a href="https://digicoll.lib.berkeley.edu/record/110904">UC Berkeley Library Digital Collections</a>.
+                        License: public domain (U.S. government work).
+                        Modification: none to the file; a CSS
+                        <code>clip-path</code> trims the corners on
+                        display, staying inside the print's mount border.</li>
+                    <li><strong>PT Serif typeface.</strong> ParaType.
+                        Source:
+                        <a href="https://fonts.google.com/specimen/PT+Serif">Google Fonts</a>.
+                        License:
+                        <a href="https://openfontlicense.org/">SIL Open Font License 1.1</a>.
+                        Modification: none.</li>
+                    <li><strong>Vinyl record SVG.</strong> Original,
+                        created by me (Vincent Rosa) for this site. Colors come
+                        from the site's CSS tokens.</li>
+                    <li><strong>navigation.js.</strong> My own Module 5
+                        script, reused unchanged.</li>
+                </ul>
+                <p><strong>AI disclosure:</strong>No generative AI was used. </p>
             </section>
         </main>
     </body>
