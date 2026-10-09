@@ -474,8 +474,8 @@ they can now use tokens */
         display: none;
 }
 
-/* 56em came from the Module 5 labels. Going to retest with these four labels. */
-@media (min-width: 56em) {
+/* 56em came from the Module 5 labels. Retested and added new min-width to 40em */
+@media (min-width: 40em) {
     .site-header {
         flex-wrap: nowrap;
         justify-content: space-between;
