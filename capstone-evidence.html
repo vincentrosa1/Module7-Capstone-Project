@@ -230,7 +230,7 @@
 
                 <p>
                     Tested on the published pages URL, all four pages, on 
-                    10/09/2026. Browser: Chrome 154.0.8037.98.
+                    10/09/2026. Browser: Chrome 154.0.8037.98 & Firefox: 140.17.0esr (64-bit)
                 </p>
 
                 <ul>
@@ -245,11 +245,27 @@
                         opened the right page or section, and the DevTools Network panel 
                         showed no failed requests on any page. 
                     </li>
-                    <li>320 CSS pixels and 200% zoom: [result]</li>
-                    <li>Keyboard and visible focus: [result]</li>
-                    <li>Form labels, constraints, errors, and recovery: [result]</li>
-                    <li>Reduced motion and JavaScript unavailable: [result]</li>
-                    <li>Two current browsers: [result]</li>
+                    <li>320 CSS pixels and 200% zoom: All four pages reflow with no page level 
+                        horizontal scroll at 320px and at 200% on a 1280px window. The header switches
+                        to the Menu button, the home cards stack, and the clubs table scrolls inside its 
+                        own region. Nothin is clipped or overlapping.
+                    </li>
+                    <li>Keyboard and visible focus: Tab reaches the skip link first, then the brand, 
+                        Menu, nav, story guide, table region, form fields, and task links in order.
+                        Enter and Space toggle Menu; Escape closes it and returns focus to the button. 
+                        A focus ring was visible on every control (brass for the header and blue on the page).
+                    </li>
+                    <li>Form labels, constraints, errors, and recovery: Every field has a visible label, and required 
+                        fields are marked. Submitting incomplete data added a red border and tint to each invalid field
+                        and kept the valid entries. Email showed "please include an @"; the date picker only enables Saturdays from Nov 7;
+                        group sizes 0 and 16 showed range messages. A valid submit reloads a blank form with no confirmation. 
+                    </li>
+                    <li>Reduced motion and JavaScript unavailable: with <code>prefers-reduced-motion: reduce</code> emulated, 
+                    the home buttons no longer lift or nudge but keep their shadow and underline. With JavaScript disabled at 
+                375px, the Menu button stays hidden and all four links stay visible. </li>
+                    <li>Two current browsers: Repeated the 320px, keyboard, clip, shape, and SVG checks in Firefox. The menu, focus rings, 
+                        photo, record colors, and text wrap matched Chrome. No differences found.
+                    </li>
                 </ul>
             </section>
             <section>
