@@ -469,7 +469,7 @@ they can now use tokens */
 }
 
 
-[data-enhance="true"]
+[data-enhanced="true"]
     .nav-list[data-open="false"] {
         display: none;
 }
