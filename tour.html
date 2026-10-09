@@ -33,3 +33,126 @@
                 </ul>
             </nav>
         </header>
+
+        <main id="main">
+            <header class="feature-header">
+                <p class="eyebrow">Plan a visit</p>
+                <h1>Request a Walking Tour</h1>
+                <p class="lede">
+                    A guide walks your group past the plaques that mark where the clubs stood,
+                    from Jack's Tavern to Bop City. Tours run about 90 minutes on Saturdays.
+                </p>
+            </header>
+
+            <div class="form-intro">
+                <p>
+                    <strong>Demo only: </strong> this is a class project.
+                    Nothing you enter is sent or storedd, so use ficitional details.
+                </p>
+
+                <p>
+                    Fields marked
+                    <span aria-hidden="true">*</span>
+                    are required.
+                </p>
+            </div>
+
+            <form class="tour-form" method="get" action="tour.html">
+                <fieldset>
+                    <legend>Your contact details</legend>
+
+                    <div class="field">
+                        <label for="name">
+                            Full name
+                            <span aria-hidden="true">*</span>
+                            <span class="visually-hidden">(required)</span>
+                        </label>
+                        <input id="name" name="name" type="text"
+                            autocomplete="name" required>
+                    </div>
+
+                    <div class="field">
+                        <label for="email">
+                            Email
+                            <span aria-hidden="true">*</span>
+                            <span class="visually-hidden">(required)</span>
+                        </label>
+                        <p class="help" id="email-help">
+                            Format: name@example.com
+                        </p>
+                        <input id="email" name="email" type="email"
+                            autocomplete="email" required
+                            aria-describedby="email-help">
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Your tour</legend>
+
+                    <div class="field">
+                        <label for="tour-date">
+                            Tour date
+                            <span aria-hidden="true">*</span>
+                            <span class="visually-hidden">(required)</span>
+                        </label>
+                        <p class="help" id="tour-date-help">
+                            Saturdays only, on or after
+                            November 7, 2026.
+                        </p>
+                        <input id="tour-date" name="tour-date"
+                        type="date" min="2026-11-07" steps="7"
+                        required aria-describedby="tour-date-help">
+                    </div>
+
+                    <div class="field">
+                        <label for="start-time">
+                            Start time
+                            <span aria-hidden="true">*</span>
+                            <span class="visually-hidden">(required)</span>
+                        </label>
+                        <select id="start-time" name="start-time"
+                        required>
+                        <option value="">Choose a start time</option>
+                        <option value="10am">10:00 a.m.</option>
+                        <option value="1pm">1:00 p.m.</option>
+                        </select>
+                    </div>
+
+                    <div class="field">
+                        <label for="group-size">
+                            Group size
+                            <span aria-hidden="true">*</span>
+                            <span class="vissual-hidden">(required)</span>
+                        </label>
+                        <p calss="help" id="group-size-help">
+                            A whole number from 1 to 15. For larger
+                            groups, send two request.
+                        </p>
+                        <input id="group-size" name="group-size"
+                            type="number" min="1" max="15" step="1"
+                            required
+                            aria-describedby="group-size-help">
+                    </div>
+
+                    <div class="field">
+                        <label for="access-needs">
+                            Access needs (optional)
+                        </label>
+                        <p class="help" id="access-needs-help">
+                            The rout is about a mile and a half
+                            on city sidewalks. Tell us about seating, 
+                            pace, or other accessibility needs. Up to 
+                            300 characters.
+                        </p>
+                        <textarea id="access-needs"
+                        name="access-needs" rows="4"
+                        max-length="300"
+                        aria-describedby="access-needs-help"></textarea>
+                    </div>
+                </fieldset>
+
+                <button type="submit">Request tour</button>
+            </form>
+        </main>
+    </body>
+</html>
