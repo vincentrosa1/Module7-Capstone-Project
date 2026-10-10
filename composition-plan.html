@@ -253,7 +253,8 @@
 
                         <td>
                             <code>.pull-quote</code> is both its containing block and its stacking context. <code>z-index:-1</code> will paint it above the quote's
-                            background but under the quote's text.
+                            background but under the quote's text. I added <code>isolation:isolate</code> so the stacking context exists at every width, not just at 
+                            52rem.
                         </td>
 
                         <td>
@@ -282,7 +283,7 @@
 
                         <td>
                             An inline SVG, so it can use my color tokens. I will use <code>float:inline-start</code> with
-                            <code>shape-outside:circle(50%)</code> and <code>shape-margin</code> so the text follows the record's actual round
+                            <code>shape-outside:circle(50%) border-box</code> and <code>shape-margin</code> so the text follows the record's actual round
                             edge instead of a square box. The graphic really is a circle, so the shape matches the content.  
                         </td>
 
