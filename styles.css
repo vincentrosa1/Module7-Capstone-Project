@@ -366,7 +366,7 @@ they can now use tokens */
     @media (min-width: 30rem) {
         .shape-record {
             float: inline-start;
-            shape-outside: circle(50%);
+            shape-outside: circle(50%) border-box;
             shape-margin: var(--space-2xs);
             margin-inline-start: 0;
         }
