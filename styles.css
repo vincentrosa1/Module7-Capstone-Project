@@ -309,11 +309,13 @@ article section {
 
 .pull-quote footer {
     position: relative;
+    isolation: isolate;
     z-index: var(--layer-raised);
 }
 
 .pull-quote::before {
-    content: "";
+    content: "\201C";
+    content: "\201C" / "";
     position: absolute;
     inset-block-start: -0.3rem;
     inset-inline-start: 0.1rem;
